@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheRedChamber.Data;
 
@@ -11,9 +12,11 @@ using TheRedChamber.Data;
 namespace TheRedChamber.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230619163607_addMenuItems")]
+    partial class addMenuItems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -259,88 +262,6 @@ namespace TheRedChamber.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MenuItems");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Category = "Main Course",
-                            Description = "Famous dish from Beijing, considered as one of China national dishes",
-                            Image = "https://images.chinahighlights.com/allpicture/2021/12/d247e7d25b164b77841f6022_cut_750x400_39.webp",
-                            Name = "Peking Roasted Duck",
-                            Price = 29.98,
-                            SpecialTag = "Exclusive"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Category = "Main Course",
-                            Description = " (宫保鸡丁 gōngbào jīdīng) is a famous Sichuan-style specialty, popular with both Chinese and foreigners",
-                            Image = "https://images.chinahighlights.com/allpicture/2019/11/31acb7b302ec4b48b17443ed_cut_750x400_39.webp",
-                            Name = "Kung Pao Chicken",
-                            Price = 26.350000000000001,
-                            SpecialTag = "Top Rated"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Category = "Appetizer",
-                            Description = "Famous cantonese appetizer",
-                            Image = "https://thewoksoflife.com/wp-content/uploads/2015/09/spring-rolls-8.jpg",
-                            Name = "Cantonese Spring Rolls",
-                            Price = 9.8000000000000007,
-                            SpecialTag = " "
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Category = "Appetizer",
-                            Description = "Most popular Chinese food appetizer",
-                            Image = "https://dinnerthendessert.com/wp-content/uploads/2018/04/Crab-Rangoon-1-1536x1024.jpg",
-                            Name = "Crab Rangoon",
-                            Price = 2.25,
-                            SpecialTag = "Top Rated"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Category = "Drink",
-                            Description = "Herbal drink",
-                            Image = "https://insanelygoodrecipes.com/wp-content/uploads/2023/02/Chrysanthemum-Tea-in-a-Cup-768x1152.webp",
-                            Name = "Chrysanthemum Tea",
-                            Price = 4.6200000000000001,
-                            SpecialTag = " "
-                        },
-                        new
-                        {
-                            Id = 6,
-                            Category = "Drink",
-                            Description = "Herbal drink",
-                            Image = "https://insanelygoodrecipes.com/wp-content/uploads/2023/02/Sinkiang-Black-Beer-1-768x1152.webp",
-                            Name = "Osmanthus Wine",
-                            Price = 5.7000000000000002,
-                            SpecialTag = " "
-                        },
-                        new
-                        {
-                            Id = 7,
-                            Category = "Snack",
-                            Description = "Peanut and chewable tasty seeds",
-                            Image = "https://www.travelchinaguide.com/images/photogallery/2019/1126150703.jpg",
-                            Name = "Nuts and Seeds",
-                            Price = 12.300000000000001,
-                            SpecialTag = " "
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Category = "Snack",
-                            Description = "This Chinese snack recipe is stringing fruits, including Chinese hawthorn berries etc...",
-                            Image = "https://www.travelchinaguide.com/images/photogallery/2019/1126150603.jpg",
-                            Name = "Candied Fruit on a Stick – Bingtang Hulu",
-                            Price = 1.5,
-                            SpecialTag = " "
-                        });
                 });
 
             modelBuilder.Entity("TheRedChamber.Model.ApplicationUser", b =>
