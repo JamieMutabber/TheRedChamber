@@ -21,7 +21,7 @@ namespace TheRedChamber.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<MenuItem>().HasData(new MenuItem
-            {
+            { 
                 Id = 1,
                 Name = "Peking Roasted Duck",
                 Description = "Famous dish from Beijing, " +
