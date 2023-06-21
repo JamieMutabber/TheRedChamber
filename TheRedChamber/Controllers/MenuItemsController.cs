@@ -25,7 +25,7 @@ namespace TheRedChamber.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> getAll()
+        public async Task<IActionResult> GetMenuItem()
         {
             if (_context.MenuItems == null)
             {
@@ -34,6 +34,26 @@ namespace TheRedChamber.Controllers
 
             var allMenuItems = await _context.MenuItems.ToListAsync();
             _response.Result = allMenuItems;
+            _response.StatusCode = HttpStatusCode.OK;
+            return Ok(_response);
+        }
+
+        [HttpGet("{id:int}")] 
+        public async Task<IActionResult> GetMenuItem(int id)
+        {
+            //finding if the menuItems exist by Id
+            var menuItemsById = await _context.MenuItems.FindAsync(id);
+
+            //if notfound by id
+            if (menuItemsById == null)
+            {
+                _response.StatusCode = HttpStatusCode.BadRequest;
+                return BadRequest(_response);
+            }
+
+            //result
+            _response.Result = menuItemsById;
+            //status code
             _response.StatusCode = HttpStatusCode.OK;
             return Ok(_response);
         }
