@@ -1,7 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TheRedChamber.Data;
+using TheRedChamber.Helpers;
+using TheRedChamber.Interfaces;
 using TheRedChamber.Model;
+using TheRedChamber.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Add photoservice 
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+
+// Add cloudinary services
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 // Add connectionstring for DB connection 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
