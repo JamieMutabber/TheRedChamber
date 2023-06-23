@@ -15,6 +15,7 @@ This project is made for a local restaurant in Dhaka. It is currently being deve
     <li>Database: MSSQL</li>
     <li>GUI: MSSQL SSMS</li>
     <li>ORM: Entity Framework Core</li>
+     <li>Cloudinary: Image Storage</li>
   </ul>
 
 <hr/>
